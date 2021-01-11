@@ -29,6 +29,15 @@ echo AZURE_CLIENT_ID=$AZURE_CLIENT_ID >> credentials-velero
 echo AZURE_CLIENT_SECRET=$AZURE_CLIENT_SECRET >> credentials-velero
 echo AZURE_RESOURCE_GROUP=$AZURE_RESOURCE_GROUP >> credentials-velero
 
+# Install Velero
+velero install \
+--provider azure \
+--plugins velero/velero-plugin-for-microsoft-azure:v1.0.1 \
+--bucket $BLOB_CONTAINER \
+--secret-file ./credentials-velero \
+--backup-location-config resourceGroup=$RG,storageAccount=$AZURE_STORAGE_ACCOUNT_ID,subscriptionId=$AZURE_SUBSCRIPTION_ID \
+--snapshot-location-config resourceGroup=$RG,subscriptionId=$AZURE_SUBSCRIPTION_ID
+
 # Test the backup
 velero backup create [name] --selector [label]
 
