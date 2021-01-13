@@ -20,8 +20,6 @@ AZURE_CLIENT_SECRET=$(az ad sp create-for-rbac -n $AZURE_STORAGE_ACCOUNT_ID --ro
 # get service principles ID
 AZURE_CLIENT_ID=$(az ad sp show --id http://$AZURE_STORAGE_ACCOUNT_ID --query appId --output tsv)
 
-AZURE_RESOURCE_GROUP=$(az aks show --query nodeResourceGroup --name aksname --resource-group aksrg --output tsv)
-
 
 echo AZURE_SUBSCRIPTION_ID=$AZURE_SUBSCRIPTION_ID > credentials-velero
 echo AZURE_TENANT_ID=$AZURE_TENANT_ID >> credentials-velero
