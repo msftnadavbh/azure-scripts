@@ -1,5 +1,6 @@
-Install velero from :
-https://velero.io/
+## Install velero from :
+## https://velero.io/
+## move velero to /usr/local/bin
 
 # name of the Storage where storage container is
 export AZURE_STORAGE_ACCOUNT_ID="velerobackup"
