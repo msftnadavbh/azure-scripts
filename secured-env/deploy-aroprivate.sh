@@ -1,3 +1,5 @@
+## This is a copied script from the Microsoft Azure documentation. Use it at your own risk.
+
 LOCATION=northeurope
 RESOURCEGROUP=aro-rg
 CLUSTER=aro
